@@ -1,13 +1,7 @@
 {{ define "main" }}
 <div class="posts-list">
   <h1>{{ .Site.Title }}</h1>
-  <p style="color: #6b7280; font-size: 1.1rem; margin-bottom: 2rem;">{{ .Site.Params.description }}</p>
-
-  <div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-    <a href="/posts/" style="color: #6b7280; font-weight: 500; padding: 0.75rem 1.5rem; background: #f3f4f6; border-radius: 6px;">View All Articles</a>
-  </div>
-
-  <h2 style="margin-top: 2rem;">Latest Articles</h2>
+  <p>{{ .Site.Params.description }}</p>
 
   {{ range (.Pages.ByPublishDate.Reverse | first 10) }}
   {{ if eq .Type "posts" }}
@@ -24,5 +18,9 @@
   </article>
   {{ end }}
   {{ end }}
+
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="/posts/" style="color: var(--teal); font-weight: 600; font-size: 1.05rem;">View all articles →</a>
+  </div>
 </div>
 {{ end }}

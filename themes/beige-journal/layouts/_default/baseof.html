@@ -7,63 +7,118 @@
   <meta name="description" content="{{ if .Summary }}{{ .Summary | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ if .Summary }}{{ .Summary | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --cream: #FDFAF6;
+      --blush: #EFD6D5;
+      --dusty-blue: #BED2D5;
+      --sage: #B8CAA5;
+      --teal: #577371;
+      --ink: #3D2B1F;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: var(--sans);
       font-size: 1rem;
       line-height: 1.6;
-      color: #2c2c2c;
-      background: #fefcfa;
+      color: var(--ink);
+      background: var(--cream);
     }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; font-weight: 600; line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; }
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
-    h4, h5, h6 { font-size: 1.25rem; }
-    p { margin-bottom: 1.25em; }
-    a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #1f2937; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--serif); font-weight: 600; line-height: 1.2; color: var(--ink); }
+    h1 { font-size: 3rem; margin: 1.5rem 0 0.5rem; }
+    h2 { font-size: 2.2rem; margin: 1.5rem 0 0.5rem; }
+    h3 { font-size: 1.6rem; margin: 1rem 0 0.5rem; }
+    h4 { font-size: 1.25rem; }
+    h5, h6 { font-size: 1.1rem; }
+    p { margin-bottom: 1.25rem; }
+    a { color: var(--teal); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--ink); }
 
-    header { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; position: sticky; top: 0; z-index: 100; }
-    nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-    .nav-logo { font-family: 'Crimson Text', serif; font-size: 1.5rem; font-weight: 600; color: #1f2937; white-space: nowrap; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; flex-wrap: wrap; }
-    .nav-links a { color: #6b7280; font-size: 0.9rem; font-weight: 400; }
-    .nav-links a:hover { color: #1f2937; }
+    header {
+      background: white;
+      border-bottom: 1px solid var(--blush);
+      padding: 1.5rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--ink); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--ink); font-size: 0.95rem; font-weight: 400; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--teal); }
 
-    main { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; min-height: calc(100vh - 250px); }
-    main > h1:first-child { text-align: center; margin-top: 3rem; margin-bottom: 1rem; }
-    main > p:first-of-type { text-align: center; color: #6b7280; font-size: 1.1rem; margin-bottom: 2rem; }
+    main { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; min-height: calc(100vh - 200px); }
+
     .article { margin-bottom: 3rem; }
-    .article-meta { color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem; }
+    .article h1 { margin-top: 0; }
+    .article-meta { color: #8A7B75; font-size: 0.9rem; margin-bottom: 2rem; }
+    .article-content { font-size: 1.05rem; line-height: 1.75; }
     .article-content img { max-width: 100%; height: auto; margin: 2rem 0; border-radius: 8px; }
-    .article-content blockquote { border-left: 3px solid #d1d5db; padding-left: 1.5rem; margin: 2rem 0; color: #6b7280; font-style: italic; }
-    .article-content code { background: #f3f4f6; padding: 0.2em 0.4em; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
-    .article-content pre { background: #1f2937; color: #f3f4f6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin: 1.5rem 0; }
-    .article-content pre code { background: none; padding: 0; }
+    .article-content blockquote {
+      background-color: var(--blush);
+      border-left: 4px solid var(--teal);
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .article-content code { background: #f5ede0; padding: 0.2em 0.5em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+    .article-content pre { background: var(--ink); color: var(--cream); padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin: 1.5rem 0; }
+    .article-content pre code { background: none; padding: 0; color: inherit; }
 
     .posts-list { display: grid; gap: 2.5rem; }
-    .posts-list > h1 { margin-bottom: 0.5rem; }
-    .posts-list > p { margin-bottom: 2rem; }
-    .post-card { padding: 2.5rem; background: #fff; border-radius: 10px; border: 1px solid #e5e7eb; transition: box-shadow 0.2s, border-color 0.2s; }
-    .post-card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-color: #d1d5db; }
-    .post-card h3 { margin-top: 0; margin-bottom: 0.75rem; font-size: 1.35rem; }
-    .post-card h3 a { color: #1f2937; }
-    .post-card h3 a:hover { color: #6b7280; }
-    .post-card .meta { color: #9ca3af; font-size: 0.85rem; margin-bottom: 1rem; }
-    .post-card p { margin-bottom: 1.25rem; color: #6b7280; font-size: 0.95rem; line-height: 1.6; }
-    .post-card a { color: #6b7280; font-weight: 500; }
+    .posts-list > h1 { text-align: center; margin-bottom: 1rem; font-style: italic; font-weight: 400; font-size: 2.8rem; }
+    .posts-list > p { text-align: center; color: var(--ink); opacity: 0.85; margin-bottom: 3rem; font-size: 1.1rem; }
 
-    footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 2rem 0; margin-top: 3rem; color: #6b7280; }
-    .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center; font-size: 0.9rem; }
+    .post-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--blush);
+      transition: all 0.3s;
+      border-left: 4px solid var(--teal);
+    }
+    .post-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .post-card h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .post-card h3 a { color: var(--ink); }
+    .post-card h3 a:hover { color: var(--teal); }
+    .post-card .meta { color: #8A7B75; font-size: 0.85rem; margin-bottom: 1rem; }
+    .post-card p { margin-bottom: 1rem; color: var(--ink); opacity: 0.85; }
+    .post-card a { color: var(--teal); font-weight: 500; }
+
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 2rem 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+    footer a { color: white; }
 
     @media (max-width: 768px) {
-      .nav-links { gap: 1rem; }
-      main { padding: 2rem 1rem; }
-      h1 { font-size: 1.75rem; }
+      header { padding: 1.5rem 1.5rem; }
+      nav { flex-direction: column; gap: 1rem; }
+      main { padding: 2rem 1.5rem; }
+      h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
     }
   </style>

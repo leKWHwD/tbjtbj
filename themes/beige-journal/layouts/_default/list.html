@@ -8,6 +8,7 @@
   {{ end }}
 
   {{ range .Pages.ByPublishDate.Reverse }}
+  {{ if eq .Type "posts" }}
   <article class="post-card">
     <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <div class="meta">
@@ -19,6 +20,7 @@
     {{ if .Summary }}<p>{{ .Summary }}</p>{{ end }}
     <a href="{{ .Permalink }}">Read more →</a>
   </article>
+  {{ end }}
   {{ end }}
 </div>
 {{ end }}
