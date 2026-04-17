@@ -1,78 +1,19 @@
 {{ define "main" }}
-<article class="bj-post">
-  <div class="bj-post-header">
-    <h1 class="bj-post-title">{{ .Title }}</h1>
-    <div class="bj-post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{ .Date.Format "January 2, 2006" }}
-      </time>
+<article class="article">
+  <header>
+    <h1>{{ .Title }}</h1>
+    <div class="article-meta">
+      {{ if .PublishDate }}
+      <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+      {{ end }}
       {{ if .Params.categories }}
-        <span class="bj-post-categories">
-          {{ range .Params.categories }}
-            <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-        </span>
+      <span> • </span>
+      {{ range .Params.categories }}<span>{{ . }}</span>{{ end }}
       {{ end }}
     </div>
-  </div>
-
-  {{ if .Params.coverImage }}
-    <div class="bj-post-hero">
-      <img src="{{ "/posts/images/" | relURL }}{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-image">
-    </div>
-  {{ end }}
-
-  <div class="bj-post-content bj-wrap">
+  </header>
+  <div class="article-content">
     {{ .Content }}
   </div>
-
-  {{ if .Params.tags }}
-    <div class="bj-post-tags">
-      {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="bj-tag">{{ . }}</a>
-      {{ end }}
-    </div>
-  {{ end }}
-
-  <!-- AdSense Ad -->
-  <div class="bj-ad-slot">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-PUBLISHER-ID" crossorigin="anonymous"></script>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-YOUR-PUBLISHER-ID"
-         data-ad-slot="0000000000"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <!-- Share Bar -->
-  <div class="bj-share-bar">
-    <h4>Share this post</h4>
-    <ul class="bj-share-buttons">
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank">Twitter</a></li>
-      <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank">Facebook</a></li>
-      <li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" target="_blank">LinkedIn</a></li>
-    </ul>
-  </div>
-
-  <!-- Related Posts -->
-  {{ $related := first 3 (where .Site.Pages "Section" .Section) }}
-  {{ if $related }}
-    <div class="bj-related-posts">
-      <h3>Related Posts</h3>
-      <ul>
-        {{ range $related }}
-          {{ if ne .Permalink $.Permalink }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-          {{ end }}
-        {{ end }}
-      </ul>
-    </div>
-  {{ end }}
 </article>
-
-<script src="{{ "/js/reading-progress.js" | relURL }}"></script>
 {{ end }}

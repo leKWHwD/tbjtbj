@@ -1,19 +1,5 @@
-<footer class="bj-footer" role="contentinfo">
-  <div class="bj-footer__content">
-    <div class="bj-footer__section">
-      <h3>{{ .Site.Title }}</h3>
-      <p>{{ .Site.Params.description }}</p>
-    </div>
-    <div class="bj-footer__section">
-      <h4>Quick Links</h4>
-      <ul>
-        {{ range .Site.Menus.footer }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-  </div>
-  <div class="bj-footer__bottom">
-    <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+<footer>
+  <div class="footer-content">
+    <p>{{ .Site.Copyright }}</p>
   </div>
 </footer>
