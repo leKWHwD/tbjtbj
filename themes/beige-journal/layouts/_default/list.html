@@ -11,7 +11,7 @@
     {{ range .Paginator.Pages }}
       <article class="bj-post-card">
         {{ if .Params.coverImage }}
-          <img src="{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-card-image">
+          <img src="{{ "/posts/images/" | relURL }}{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-card-image">
         {{ end }}
         <div class="bj-post-card-content">
           <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>

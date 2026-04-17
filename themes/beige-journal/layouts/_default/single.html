@@ -18,7 +18,7 @@
 
   {{ if .Params.coverImage }}
     <div class="bj-post-hero">
-      <img src="{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-image">
+      <img src="{{ "/posts/images/" | relURL }}{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-image">
     </div>
   {{ end }}
 
