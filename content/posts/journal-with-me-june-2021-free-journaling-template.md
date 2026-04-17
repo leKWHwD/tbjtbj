@@ -1,0 +1,38 @@
+---
+title: "Journal with me - June 2021 - Free Journaling Template"
+date: 2021-06-30
+categories: 
+  - "youtube"
+tags: 
+  - "digital-journal"
+  - "freebies"
+  - "youtube"
+---
+
+It's finally to feel like summer! Hope you enjoy the video and the template!
+
+If you decide to journal with me, don't forget to tag me so I can share your creation!
+
+[Instagram](https://www.instagram.com/createw.mny/) // [Youtube](https://www.youtube.com/channel/UCSRJASK0JGPuJ2N7fP93qfg) // [Etsy Shop](https://bit.ly/2JIx1Bw)
+
+Watch along on Youtube!
+
+https://www.youtube.com/watch?v=MpPfVhx7vFA&t=48s
+
+Subscribe for more videos and templates!
+
+<script src="https://apis.google.com/js/platform.js"></script>
+
+![June journaling template](images/Screen-Shot-2021-06-21-at-8.34.55-PM-1024x579.png)
+
+Free June calendar template
+
+[Download](https://drive.google.com/file/d/1M43LiUvsV1u2U0ssnkACfV7kg7rGqtfF/view?usp=sharing)
+
+![](images/June-stickers--768x1024.png)
+
+June free stickers
+
+[Download](https://drive.google.com/file/d/1QTxa_UUtljyBVEuoHLfwLEAkhEcn-RZq/view?usp=sharing)
+
+\[sc name="freebie-signup" \]\[/sc\]

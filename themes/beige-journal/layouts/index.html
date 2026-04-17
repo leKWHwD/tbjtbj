@@ -1,0 +1,53 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<div class="bj-hero">
+  <div class="bj-hero-content">
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.description }}</p>
+    <a href="/posts/" class="bj-btn bj-btn-primary">Read Articles</a>
+  </div>
+</div>
+
+<!-- Featured Posts Grid -->
+<div class="bj-featured-section bj-wrap">
+  <h2>Latest Articles</h2>
+  <div class="bj-posts-grid">
+    {{ range first 6 .Site.RegularPages }}
+      {{ if eq .Type "posts" }}
+        <article class="bj-post-card">
+          {{ if .Params.coverImage }}
+            <img src="{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-card-image">
+          {{ end }}
+          <div class="bj-post-card-content">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <div class="bj-post-card-meta">
+              <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "January 2, 2006" }}
+              </time>
+              {{ if .Params.categories }}
+                <span class="bj-categories">
+                  {{ range first 1 .Params.categories }}
+                    {{ . }}
+                  {{ end }}
+                </span>
+              {{ end }}
+            </div>
+            <p>{{ .Summary | truncate 120 }}</p>
+            <a href="{{ .Permalink }}" class="bj-read-more">Read More →</a>
+          </div>
+        </article>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+
+<!-- Call to Action -->
+<div class="bj-cta-section">
+  <h2>Subscribe for updates</h2>
+  <p>Get new posts delivered to your inbox</p>
+  <form class="bj-newsletter-form" action="#" method="POST">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit" class="bj-btn bj-btn-primary">Subscribe</button>
+  </form>
+</div>
+{{ end }}

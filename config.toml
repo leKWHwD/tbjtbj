@@ -1,0 +1,71 @@
+baseURL = "https://thebeigejournal.com/"
+title = "The Beige Journal"
+languageCode = "en-us"
+theme = "beige-journal"
+copyright = "Copyright © 2026 The Beige Journal"
+
+# Content settings
+pluralizeListTitles = false
+summaryLength = 120
+
+# Markup settings
+[markup.goldmark.renderer]
+unsafe = true
+
+# Permalink structure to match WordPress: /%category%/%postname%/
+[permalinks]
+posts = "/:section/:slug/"
+
+# Menu configuration
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Blog"
+url = "/posts/"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 3
+
+[[menu.main]]
+name = "Contact"
+url = "/contact-us/"
+weight = 4
+
+[[menu.footer]]
+name = "Privacy Policy"
+url = "/privacy-policy/"
+
+[[menu.footer]]
+name = "Disclaimer"
+url = "/disclaimer/"
+
+[[menu.footer]]
+name = "Terms of Service"
+url = "/terms-of-service/"
+
+# Output formats
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS"]
+page = ["HTML"]
+
+# Site parameters
+[params]
+description = "A creative woman's journal"
+author = "The Beige Journal"
+googleAdSenseID = "ca-pub-YOUR-PUBLISHER-ID"
+
+# Pagination
+[pagination]
+itemsPerPage = 12
+
+# Taxonomy URLs
+[taxonomies]
+category = "categories"
+tag = "tags"

@@ -1,0 +1,20 @@
+
+# Hugo
+/public/
+/resources/
+
+# OS
+.DS_Store
+.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Build output
+*.swp
+*.swo
+*~

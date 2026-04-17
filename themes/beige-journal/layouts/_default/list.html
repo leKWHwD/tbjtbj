@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="bj-archive">
+  <h1>{{ .Title }}</h1>
+  {{ if .Content }}
+    <div class="bj-archive-intro">
+      {{ .Content }}
+    </div>
+  {{ end }}
+
+  <div class="bj-posts-grid">
+    {{ range .Paginator.Pages }}
+      <article class="bj-post-card">
+        {{ if .Params.coverImage }}
+          <img src="{{ .Params.coverImage }}" alt="{{ .Title }}" class="bj-post-card-image">
+        {{ end }}
+        <div class="bj-post-card-content">
+          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <div class="bj-post-card-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date.Format "January 2, 2006" }}
+            </time>
+          </div>
+          <p>{{ .Summary }}</p>
+          <a href="{{ .Permalink }}" class="bj-read-more">Read More →</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  <!-- Pagination -->
+  {{ if gt .Paginator.TotalPages 1 }}
+    <div class="bj-pagination">
+      {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="bj-pagination-prev">← Previous</a>
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="bj-pagination-next">Next →</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
+{{ end }}
